@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-//By Jared and Emily
+//By Emily
 
 typedef struct {
 	int row;
@@ -50,7 +50,7 @@ void countMines( int n, int matrix[][n]) {
 void printMatrix(int nRows, const int matrix[][nRows]) {
 	for (int r=0; r < nRows; ++r){
 		for (int c=0; c < nRows; ++c )
-			initialise (realBoard, matrix);
+			initialise (board, matrix);
 			printf("%4+d", matrix[r][c]);
 		putchar('\n');
 		}
@@ -72,34 +72,42 @@ void initialize( int n, int mines, int matrix[][n] ) {
 	place(mines, n, choice, matrix);
 	countMines(n, matrix);
 }
+void cover(char board[n][n], char matrix[n][n]){
+  for (int r=0; i< row; r++)
+  {
+      for (int c=0; j< col; c++)
+      {
+				matrix[r][c] = board[r][c] = '-';
+      }
+  }
+  return;
+}
 
-void cover(char realBoard[n][n], char matrix[n][n])
-{
-    for (int i=0; i< row; i++)
-    {
-        for (int j=0; j< col; j++)
-        {
-					matrix[i][j] = realBoard[i][j] = '#';
-        }
-    }
-
-    return;
+void markMine(char board[r][c]){
+	board[r][c]= '#';
 }
 void choice(){
-	printf("What would you like to uncover(row, coloum)?" );
+	printf("What would you like to mess with(row, coloum)?" );
 	scanf("%d %d", &r, %c);
-	int location = (r,w);
-	if (location = 0) {
-		//show that spot
-		//show spots that surround it
-		//if neigbor spot is 0 then do process again till there is all neigbors are none 0 numbers
-	} else if (location = -1) {
-		//show spot as mines
-		gameOver = true;
-	} else{
-		//if number is anything else
-		//only reveal that spot
+	printf("Would you like to mark this as a mine?(y/n)")
+	scanf("%d", &a) //a for answer
+	if(a =n ){
+		int location = (r,w);
+		if (location = 0) {
+			printf(matrix[r][c])
+			printf(board[r+1][c+1])
+			//if neigbor spot is 0 then do process again till there is all neigbors are none 0 numbers
+		} else if (location = -1) {
+			//show spot as mines
+			gameOver = true;
+		} else{
+			//if number is anything else
+			//only reveal that spot
+		}
+	}else{
+		markMine(board[r][c]);
 	}
+
 }
 
 void playGame(){
@@ -123,6 +131,6 @@ int main() {
 	int matrix[n][n];
 	initialize(n, mines, matrix);
 	printMatrix(n, matrix);
-	char realBoard[n][n], matrix[n]n];
+	char board[n][n], matrix[n]n]; //matrix is the board with the numbers, board is the board they see
 	playGame();
 }
