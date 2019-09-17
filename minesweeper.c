@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
+//By Jared and Emily
+
 typedef struct {
 	int row;
 	int col;
-	int gameOver;
 } coordinate ;
 
 void shuffle( int n, coordinate choice[]) {
@@ -49,6 +50,7 @@ void countMines( int n, int matrix[][n]) {
 void printMatrix(int nRows, const int matrix[][nRows]) {
 	for (int r=0; r < nRows; ++r){
 		for (int c=0; c < nRows; ++c )
+			initialise (realBoard, matrix);
 			printf("%4+d", matrix[r][c]);
 		putchar('\n');
 		}
@@ -71,6 +73,18 @@ void initialize( int n, int mines, int matrix[][n] ) {
 	countMines(n, matrix);
 }
 
+void cover(char realBoard[n][n], char matrix[n][n])
+{
+    for (int i=0; i< row; i++)
+    {
+        for (int j=0; j< col; j++)
+        {
+					matrix[i][j] = realBoard[i][j] = '#';
+        }
+    }
+
+    return;
+}
 void choice(){
 	printf("What would you like to uncover(row, coloum)?" );
 	scanf("%d %d", &r, %c);
@@ -81,8 +95,7 @@ void choice(){
 		//if neigbor spot is 0 then do process again till there is all neigbors are none 0 numbers
 	} else if (location = -1) {
 		//show spot as mines
-		//end game
-		gameOver =1;
+		gameOver = true;
 	} else{
 		//if number is anything else
 		//only reveal that spot
@@ -90,14 +103,15 @@ void choice(){
 }
 
 void playGame(){
-	int gameOver = 0;
-	while (gameOver =0) {
+	bool gameOver = false;
+	if(gameOver =false) {
 		choice();
-		//print printMatrix
+			printMatrix(n, matrix);
 
+	}else{
+		printMatrix(n, matrix);
+		print("Game Over a mine has been found")
 	}
-	//print matrix
-	print("Game Over a mine has been found")
 }
 
 int main() {
@@ -109,5 +123,6 @@ int main() {
 	int matrix[n][n];
 	initialize(n, mines, matrix);
 	printMatrix(n, matrix);
+	char realBoard[n][n], matrix[n]n];
 	playGame();
 }
