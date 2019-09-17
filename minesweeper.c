@@ -88,10 +88,10 @@ void cover(char realBoard[n][n], char matrix[n][n])
 void choice(){
 	printf("What would you like to uncover(row, coloum)?" );
 	scanf("%d %d", &r, %c);
-	int location = (r,w);
+	int location = (r,c);
 	if (location = 0) {
-		//show that spot
-		//show spots that surround it
+		printf(matrix[r][c])
+		printf(realBoard[r+1][c+1])
 		//if neigbor spot is 0 then do process again till there is all neigbors are none 0 numbers
 	} else if (location = -1) {
 		//show spot as mines
